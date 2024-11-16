@@ -1,6 +1,6 @@
 
 <p align="center">
-<img style="width:100px; height:100px;" 
+<img style="width:1px; height:1px;" 
 <img src="https://envs.sh/PvU.jpg" alt="Mr.KD BOTZZ LOGO">
 </p>
 <h1 align="center">
