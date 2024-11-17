@@ -10,3 +10,4 @@ imdbpy
 pyrofork
 schedule
 pytz
+aiohttp
