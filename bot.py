@@ -11,26 +11,14 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL
+from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
-from Script import script
+from aiohttp import web
+from plugins import web_server
 
-import schedule
-import asyncio
-from datetime import date, datetime, timedelta
-import pytz
-
-from plugins.webcode import bot_run
-from os import environ
-from aiohttp import web as webserver
-
-PORT_CODE = environ.get("PORT", "8080")
-
-
-
-
+PORT = "8080"
 
 class Bot(Client):
 
@@ -56,39 +44,12 @@ class Bot(Client):
         temp.U_NAME = me.username
         temp.B_NAME = me.first_name
         self.username = '@' + me.username
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, PORT).start()
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
-        await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT)#RESTART SND IN LOG_CHANNEL
-        print("Mantis own Bot</>")
-
-        tz = pytz.timezone('Asia/Kolkata')
-        today = date.today()
-        now = datetime.now(tz)
-        time = now.strftime("%H:%M:%S %p")
-        await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
-        
-        client = webserver.AppRunner(await bot_run())
-        await client.setup()
-        bind_address = "0.0.0.0"
-        await webserver.TCPSite(client, bind_address,
-        PORT_CODE).start()
-                          
-        # Schedule the restart every 24 hours
-        schedule.every(24).hours.do(lambda: asyncio.create_task(self.restart()))
-
-        #----------- Start the scheduler in a background task
-        asyncio.create_task(self.run_scheduler())
-  
-    async def restart(self):
-        logging.info(" Is it 12pm!! Bot is restarting...")
-        await self.stop()
-        await self.start()  # Restart the bot
-
-    async def run_scheduler(self):
-        while True:
-            schedule.run_pending()
-            await asyncio.sleep(1)  # Prevent busy-waiting--------------
-        
 
     async def stop(self, *args):
         await super().stop()
