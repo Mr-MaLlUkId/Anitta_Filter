@@ -159,7 +159,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('<b>👋Hey <a href=tg://settings> My Friend💞</a></b>\n\n<i>Sorry, No Movie/Series Related To The Given Word Was Found😔</i>\n\n<i> Please Go to Google And Confirm the Correct Spelling🙏</i>\n\n<b>Click Here » <a href="https://www.google.com">🔍Search Google 🔎</a></b>\n\n<i>✏️ Or Your Spelling is Correct Report to Admins for Add Requested Your Movie File :- @admins</i>')
+            k = await query.message.edit('This Movie Not Found In DataBase')
             await asyncio.sleep(10)
             await k.delete()
 
@@ -805,7 +805,7 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply(f"<b>Hey 👋{message.from_user.mention}</b>\n\n<i>I couldn't find the file you requested 😕</i>\n<i>Try to do the following...</i>\n\n=> <i>Request with correct spelling</i>\n\n=> <i>Don't ask movies that are not released in OTT platforms</i>\n\n=> <i>Try to ask in [MovieName, Language] this format.</i>\n\n=> <i>Use the button below to search on Google 😌</i>", reply_markup=InlineKeyboardMarkup(button)
+        k = await msg.reply("<b>I couldn't find any movie in that name.</b>")
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -834,7 +834,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply(f"<b>Hey 👋{message.from_user.mention}</b>\n\n<i>I couldn't find the file you requested 😕</i>\n<i>Try to do the following...</i>\n\n=> <i>Request with correct spelling</i>\n\n=> <i>Don't ask movies that are not released in OTT platforms</i>\n\n=> <i>Try to ask in [MovieName, Language] this format.</i>\n\n=> <i>Use the button below to search on Google 😌</i>", reply_markup=InlineKeyboardMarkup(button)
+        k = await msg.reply("I couldn't find anything related to that. Check your spelling")
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -846,7 +846,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="✖️ 𝓒𝓵𝓸𝓼𝓮 ✖️", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("<i>I couldn't find anything related that\nyou mean any one of these.?</i>\n<i>താങ്കൾ ഉദ്ദേശിച്ച മൂവി തായെ വല്ലതും ആണെങ്കിൽ അതിൽ ക്ലിക്ക് ചെയ്യുക.?</i>",
+    await msg.reply("<i>I couldn't find anything related that\nyou mean any one of these.?</i>\n\n<i>താങ്കൾ ഉദ്ദേശിച്ച മൂവി തായെ വല്ലതും ആണെങ്കിൽ അതിൽ ക്ലിക്ക് ചെയ്യുക.?</i>",
                     reply_markup=InlineKeyboardMarkup(btn))
 
 async def manual_filters(client, message, text=False):
