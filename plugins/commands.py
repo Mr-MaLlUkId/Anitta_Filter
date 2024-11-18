@@ -20,13 +20,13 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
-    if message.chat.type in ['group', 'supergroup']:
+    if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+                InlineKeyboardButton('🛡 ᴄʜᴀɴɴᴇʟ', url='https://t.me/CINEMACLUBLINKZ'),
             ],
             [
-                InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
+                InlineKeyboardButton('🧩 ɢʀᴏᴜᴘ', url='https://t.me/+lTcjMF6iKqs1MjJl')
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -42,13 +42,7 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
-            ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs ⚡', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -62,39 +56,33 @@ async def start(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         except ChatAdminRequired:
-            logger.error("Make sure Bot is admin in Forcesub channel")
+            logger.error("Nᴀ FᴏʀᴄᴇSᴜʙ Cʜᴀɴɴᴇʟ Lᴀ Aᴅᴍɪɴ Aʜ Eʀᴜᴋᴇɴ Nᴀɴᴜ Cʜᴇᴄᴋ Pᴀɴɴɪᴋᴏɴɢᴀ")
             return
         btn = [
             [
                 InlineKeyboardButton(
-                    "🤖 Join Updates Channel", url=invite_link.invite_link
+                    "🤖 Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ", url=invite_link.invite_link
                 )
             ]
         ]
 
         if message.command[1] != "subscribe":
             try:
-            	kk, file_id = message.command[1].split("_", 1)
-            	pre = 'checksubp' if kk == 'filep' else 'checksub' 
-            	btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
-            except IndexError:
-                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}/{message.command[1]}")])
+                kk, file_id = message.command[1].split("_", 1)
+                pre = 'checksubp' if kk == 'filep' else 'checksub' 
+                btn.append([InlineKeyboardButton(" 🔄 Tʀʏ Aɢᴀɪɴ", callback_data=f"{pre}#{file_id}")])
+            except (IndexError, ValueError):
+                btn.append([InlineKeyboardButton(" 🔄 Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="**Yᴇɴɴᴏᴅᴀ Uᴘᴅᴀᴛᴇs CʜᴀɴɴᴇʟA Jᴏɪɴ Pᴀɴɴᴀ Tʜᴀ Yᴇɴɴᴀ Usᴇ Pᴀɴɴᴀ Mᴜᴅɪʏᴜᴍ**",
             reply_markup=InlineKeyboardMarkup(btn),
-            parse_mode="markdown"
+            parse_mode=enums.ParseMode.MARKDOWN
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
-            ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs ⚡', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -170,7 +158,7 @@ async def start(client, message):
         diff = int(l_msg_id) - int(f_msg_id)
         async for msg in client.iter_messages(int(f_chat_id), int(l_msg_id), int(f_msg_id)):
             if msg.media:
-                media = getattr(msg, msg.media)
+                media = getattr(msg, msg.media.value)
                 if BATCH_FILE_CAPTION:
                     try:
                         f_caption=BATCH_FILE_CAPTION.format(file_name=getattr(media, 'file_name', ''), file_size=getattr(media, 'file_size', ''), file_caption=getattr(msg, 'caption', ''))
@@ -178,7 +166,7 @@ async def start(client, message):
                         logger.exception(e)
                         f_caption = getattr(msg, 'caption', '')
                 else:
-                    media = getattr(msg, msg.media)
+                    media = getattr(msg, msg.media.value)
                     file_name = getattr(media, 'file_name', '')
                     f_caption = getattr(msg, 'caption', file_name)
                 try:
@@ -214,7 +202,7 @@ async def start(client, message):
                 protect_content=True if pre == 'filep' else False,
                 )
             filetype = msg.media
-            file = getattr(msg, filetype)
+            file = getattr(msg, filetype.value)
             title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
@@ -227,7 +215,7 @@ async def start(client, message):
             return
         except:
             pass
-        return await message.reply('No such file exist.')
+        return await message.reply('Fɪʟᴇs Kᴀɴᴀᴘᴏᴄʜɪ 😬')
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
@@ -240,10 +228,20 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
+    buttons = [
+                    [
+                        InlineKeyboardButton('💥 ɢʀᴏᴜᴘ', url="https://t.me/+lTcjMF6iKqs1MjJl"),
+                        InlineKeyboardButton('💌 ᴄʜᴀɴɴᴇʟ', url="https://t.me/CinemaShopLinkz")
+                    ],
+                    [
+                        InlineKeyboardButton(text=f'🌿 Fɪʟᴇ sɪᴢᴇ 【 {size} 】🌿', callback_data='gxneo')
+                    ]
+                    ]
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
+        reply_markup=InlineKeyboardMarkup(buttons),
         protect_content=True if pre == 'filep' else False,
         )
                     
@@ -292,7 +290,7 @@ async def delete(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
     if reply and reply.media:
-        msg = await message.reply("Processing...⏳", quote=True)
+        msg = await message.reply("Wᴀɪᴛ Pᴀɴɴᴜɴɢᴀ...⏳", quote=True)
     else:
         await message.reply('Reply to file with /delete which you want to delete', quote=True)
         return
@@ -360,7 +358,7 @@ async def delete_all_index(bot, message):
 @Client.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
-    await message.answer('Piracy Is Crime')
+    await message.answer('Tʜᴇᴛᴇʀ & Oᴛᴛ Kᴜ Kᴀsᴜ Iʟʟᴀʏᴀ 💌 Pᴀʀᴀᴠᴀʟʟᴀ Nᴀ Iʀᴜᴋᴇɴ')
     await message.message.edit('Succesfully Deleted All The Indexed Files.')
 
 
@@ -368,10 +366,10 @@ async def delete_all_index_confirm(bot, message):
 async def settings(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"Nᴇɴɢᴀ Aᴅᴅʀᴇss IʟʟᴀTʜᴀ Aᴅᴍɪɴ 🤣. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
-    if chat_type == "private":
+    if chat_type == enums.ChatType.PRIVATE:
         grpid = await active_connection(str(userid))
         if grpid is not None:
             grp_id = grpid
@@ -379,13 +377,13 @@ async def settings(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Make sure I'm present in your group!!", quote=True)
+                await message.reply_text("Nᴀ Uɴɢᴀ Gʀᴏᴜᴘ Lᴀ Eʀᴜᴋᴇɴ Nᴀɴᴜ Cʜᴇᴄᴋ Pᴀɴɴᴜɴɢᴀ!!", quote=True)
                 return
         else:
-            await message.reply_text("I'm not connected to any groups!", quote=True)
+            await message.reply_text("Nᴀ Iɴɴᴜᴍ Eɴᴛʜᴀ Gʀᴏᴜᴘ Lᴀʏᴜᴍ Aᴅᴅ Pᴀɴɴᴀʟᴀ!", quote=True)
             return
 
-    elif chat_type in ["group", "supergroup"]:
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         grp_id = message.chat.id
         title = message.chat.title
 
@@ -394,8 +392,8 @@ async def settings(client, message):
 
     st = await client.get_chat_member(grp_id, userid)
     if (
-            st.status != "administrator"
-            and st.status != "creator"
+            st.status != enums.ChatMemberStatus.ADMINISTRATOR
+            and st.status != enums.ChatMemberStatus.OWNER
             and str(userid) not in ADMINS
     ):
         return
@@ -472,8 +470,8 @@ async def settings(client, message):
             text=f"<b>Change Your Settings for {title} As Your Wish ⚙</b>",
             reply_markup=reply_markup,
             disable_web_page_preview=True,
-            parse_mode="html",
-            reply_to_message_id=message.message_id
+            parse_mode=enums.ParseMode.HTML,
+            reply_to_message_id=message.id
         )
 
 
@@ -483,10 +481,10 @@ async def save_template(client, message):
     sts = await message.reply("Checking template")
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"Nᴇɴɢᴀ Aᴅᴅʀᴇss IʟʟᴀTʜᴀ Aᴅᴍɪɴ 🤣. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
-    if chat_type == "private":
+    if chat_type == enums.ChatType.PRIVATE:
         grpid = await active_connection(str(userid))
         if grpid is not None:
             grp_id = grpid
@@ -494,13 +492,13 @@ async def save_template(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Make sure I'm present in your group!!", quote=True)
+                await message.reply_text("Nᴀ Uɴɢᴀ Gʀᴏᴜᴘ Lᴀ Eʀᴜᴋᴇɴ Nᴀɴᴜ Cʜᴇᴄᴋ Pᴀɴɴᴜɴɢᴀ!!", quote=True)
                 return
         else:
-            await message.reply_text("I'm not connected to any groups!", quote=True)
+            await message.reply_text("Nᴀ Iɴɴᴜᴍ Eɴᴛʜᴀ Gʀᴏᴜᴘ Lᴀʏᴜᴍ Aᴅᴅ Pᴀɴɴᴀʟᴀ!", quote=True)
             return
 
-    elif chat_type in ["group", "supergroup"]:
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         grp_id = message.chat.id
         title = message.chat.title
 
@@ -509,8 +507,8 @@ async def save_template(client, message):
 
     st = await client.get_chat_member(grp_id, userid)
     if (
-            st.status != "administrator"
-            and st.status != "creator"
+            st.status != enums.ChatMemberStatus.ADMINISTRATOR
+            and st.status != enums.ChatMemberStatus.OWNER
             and str(userid) not in ADMINS
     ):
         return
