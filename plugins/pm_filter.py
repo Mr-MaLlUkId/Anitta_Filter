@@ -45,7 +45,7 @@ async def pm_text(bot, message):
     if user_id in ADMINS: return # ignore admins
     await message.reply_text(
          text="<b>ഇവിടെ മെസ്സേജ് അയച്ചാൽ മൂവി കിട്ടില്ല മൂവി കിട്ടാൻ ഗ്രൂപ്പിൽ ജോയിൻ ചെയ്യുക</b>",
-         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🎪 Movie Request Group 🎪", url=f"https://t.me/+iEbhY7mM4oE1OTVl")]]))
+         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔮 𝓙𝓸𝓲𝓷 𝓞𝓾𝓻 𝓜𝓸𝓿𝓲𝓮 𝓖𝓻𝓸𝓾𝓹 🔮", url=f"https://t.me/+iEbhY7mM4oE1OTVl")]]))
     await bot.send_message()
 
 
