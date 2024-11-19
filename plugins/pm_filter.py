@@ -116,7 +116,7 @@ async def next_page(bot, query):
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton("⤶ 𝖡𝖺𝖼𝗄", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"❏{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}❏",
+             InlineKeyboardButton(f"❏ {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)} ❏",
                                   callback_data="pages")]
         )
     elif off_set is None:
@@ -127,7 +127,7 @@ async def next_page(bot, query):
         btn.append(
             [
                 InlineKeyboardButton("⤶ 𝖡𝖺𝖼𝗄", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(f"❏{math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}❏", callback_data="pages"),
+                InlineKeyboardButton(f"❏ {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)} ❏", callback_data="pages"),
                 InlineKeyboardButton("𝖭𝖾𝗑𝗍 ⤷", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
@@ -741,7 +741,7 @@ async def auto_filter(client, msg, spoll=False):
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="🚫 𝓝𝓸 𝓜𝓸𝓻𝓮 𝓝𝓮𝔁𝓽 𝓟𝓪𝓰𝓮𝓼 🚫", callback_data="pages")]
+            [InlineKeyboardButton(text="! 𝖭𝗈 𝖬𝗈𝗋𝖾 𝖭𝖾𝗑𝗍 𝖯𝖺𝗀𝖾𝗌 !", callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
@@ -845,8 +845,8 @@ async def advantage_spell_chok(msg):
             callback_data=f"spolling#{user}#{k}",
         )
     ] for k, movie in enumerate(movielist)]
-    btn.append([InlineKeyboardButton(text="✖️ 𝓒𝓵𝓸𝓼𝓮 ✖️", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("<i>I couldn't find anything related that\nyou mean any one of these.?</i>\n\n<i>താങ്കൾ ഉദ്ദേശിച്ച മൂവി തായെ വല്ലതും ആണെങ്കിൽ അതിൽ ക്ലിക്ക് ചെയ്യുക.?</i>",
+    btn.append([InlineKeyboardButton(text="✘ 𝖢𝗅𝗈𝗌𝖾 ✘", callback_data=f'spolling#{user}#close_spellcheck')])
+    await msg.reply("I couldn't find anything related that\nyou mean any one of these.?\n\nതാങ്കൾ ഉദ്ദേശിച്ച മൂവി തായെ വല്ലതും ആണെങ്കിൽ അതിൽ ക്ലിക്ക് ചെയ്യുക.?",
                     reply_markup=InlineKeyboardMarkup(btn))
 
 async def manual_filters(client, message, text=False):
