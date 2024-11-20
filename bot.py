@@ -47,7 +47,6 @@ class Bot(Client):
         temp.U_NAME = me.username
         temp.B_NAME = me.first_name
         self.username = '@' + me.username
-        curr = datetime.now(timezone(TIMEZONE))
         date = curr.strftime('%d %B, %Y')
         time = curr.strftime('%I:%M:%S %p')
         app = web.AppRunner(await web_server())
