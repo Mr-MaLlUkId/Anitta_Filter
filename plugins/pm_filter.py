@@ -53,14 +53,14 @@ async def pm_text(bot, message):
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
-        return await query.answer("oKda", show_alert=True)
+        return await query.answer("𝖢𝗁𝖾𝖼𝗄 𝖸𝗈𝗎𝗋 𝖮𝗐𝗇 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 😤", show_alert=True)
     try:
         offset = int(offset)
     except:
         offset = 0
     search = BUTTONS.get(key)
     if not search:
-        await query.answer("Uɴɢᴀʟᴜᴋᴜ Vᴇɴᴜɢᴜʀᴀ Fɪʟᴇs Nᴀᴍᴇ Aʜ Tʜɪʀᴜᴍʙɪ Sᴇɴᴅ Pᴀɴɴᴜɴɢᴀ.", show_alert=True)
+        await query.answer("𝖸𝗈𝗎 𝖠𝗋𝖾 𝖴𝗌𝗂𝗇𝗀 𝖬𝗒 𝖮𝗅𝖽 𝖬𝖾𝗌𝗌𝖺𝗀𝖾𝗌🥲,𝖳𝗋𝗒 𝖠𝗌𝗄𝗂𝗇𝗀 𝖠𝗀𝖺𝗂𝗇 🤠.", show_alert=True)
         return
 
     files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
