@@ -110,7 +110,7 @@ Name - {}
 """
     OWNER_TXT = """<b>○ 𝖢𝗋𝖾𝖺𝗍𝗈𝗋 : <a href=https://t.me/TG_x_filter>🇮🇳❍ 𝖒𝖆𝖓𝖙𝖎𝖘 ❍™◢ ◤</a></b>"""
     
-    SETTING_TXT ="""<b>‼️ <u>Instructions</u> ‼️</b>
+    HOWTOUES_TXT ="""<b>‼️ <u>Instructions</u> ‼️</b>
 
 <b>How to add me in your group?</b>
 
