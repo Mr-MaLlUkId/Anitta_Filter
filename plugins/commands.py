@@ -56,7 +56,7 @@ async def start(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         except ChatAdminRequired:
-            logger.error("Nᴀ FᴏʀᴄᴇSᴜʙ Cʜᴀɴɴᴇʟ Lᴀ Aᴅᴍɪɴ Aʜ Eʀᴜᴋᴇɴ Nᴀɴᴜ Cʜᴇᴄᴋ Pᴀɴɴɪᴋᴏɴɢᴀ")
+            logger.error("𝖬𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝖡𝗈𝗍 𝗂𝗌 𝖺𝖽𝗆𝗂𝗇 𝗂𝗇 𝖥𝗈𝗋𝖼𝖾𝗌𝗎𝖻 𝖼𝗁𝖺𝗇𝗇𝖾𝗅")
             return
         btn = [
             [
@@ -215,7 +215,7 @@ async def start(client, message):
             return
         except:
             pass
-        return await message.reply('Fɪʟᴇs Kᴀɴᴀᴘᴏᴄʜɪ 😬')
+        return await message.reply(' 😬')
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
