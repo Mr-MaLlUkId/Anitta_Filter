@@ -11,4 +11,5 @@ imdbpy
 pyrofork
 schedule
 pytz
+datetime
 aiohttp
