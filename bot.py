@@ -11,14 +11,10 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR, LOG_CHANNEL
+from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
-from datetime import date, datetime
-from pytz import timezone
-from time import time 
-from pyrogram.errors import BadRequest, Unauthorized
 from aiohttp import web
 from plugins import web_server
 
@@ -48,21 +44,12 @@ class Bot(Client):
         temp.U_NAME = me.username
         temp.B_NAME = me.first_name
         self.username = '@' + me.username
-        date = now.strftime('%d %B, %Y')
-        time = now.strftime("%H:%M:%S %p")
         app = web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, PORT).start()
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
-        if LOG_CHANNEL:
-            try:
-                await self.send_message(LOG_CHANNEL, text=f"<b>{me.mention} Iꜱ Rᴇsᴛᴀʀᴛᴇᴅ !!\n\n📅 Dᴀᴛᴇ : <code>{date}</code>\n⏰ Tɪᴍᴇ : <code>{time}</code>\n🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>{TIMEZONE}</code>\n\n🉐 Vᴇʀsɪᴏɴ : <code>v{__version__} (Layer {layer})</code></b>")                      
-            except Unauthorized:
-                LOGGER.warning("Bot isn't able to send message to LOG_CHANNEL")
-            except BadRequest as e:
-                LOGGER.error(e)
 
     async def stop(self, *args):
         await super().stop()
