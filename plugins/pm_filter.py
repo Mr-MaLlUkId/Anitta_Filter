@@ -467,7 +467,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer('♥️hello Bro Please Share And Support')
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('•sᴇᴛᴛɪɴɢs•', callback_data='settings')
+            InlineKeyboardButton('❔𝗛𝗼𝘄 𝗧𝗼 𝗨𝘀𝗲 𝗠𝗲❔', callback_data='howtoues')
         ], [
             InlineKeyboardButton('• 𝗠𝗮𝗻𝘂𝗮𝗹 𝗙𝗶𝗹𝘁𝗲𝗿 •', callback_data='manuelfilter'),
             InlineKeyboardButton('• 𝗔𝘂𝘁𝗼 𝗙𝗶𝗹𝘁𝗲𝗿 •', callback_data='autofilter')
@@ -497,13 +497,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "settings":
+    elif query.data == "howtoues":
         buttons = [[
-            InlineKeyboardButton('⇚ 𝗕𝗮𝗰𝗸 ⇛', callback_data='help')
+            InlineKeyboardButton('➜ 𝗔𝗱𝗱 𝗺𝗲 𝘁𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➜', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            ],[
+            InlineKeyboardButton('⇚ 𝗕𝗮𝗰𝗸', callback_data='help'),
+            InlineKeyboardButton('𝗖𝗼𝗻𝘁𝗮𝗰𝘁 📞', url='https://t.me/TG_x_filter')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.SETTING_TXT,
+            text=script.HOWTOUES_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
