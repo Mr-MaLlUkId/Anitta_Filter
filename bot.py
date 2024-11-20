@@ -48,8 +48,8 @@ class Bot(Client):
         temp.U_NAME = me.username
         temp.B_NAME = me.first_name
         self.username = '@' + me.username
-        date = curr.strftime('%d %B, %Y')
-        time = curr.strftime('%I:%M:%S %p')
+        date = now.strftime('%d %B, %Y')
+        time = now.strftime("%H:%M:%S %p")
         app = web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"
