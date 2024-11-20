@@ -17,7 +17,7 @@ from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from datetime import date, datetime
 from pytz import timezone
-from time import time, curr
+from time import time 
 from pyrogram.errors import BadRequest, Unauthorized
 from aiohttp import web
 from plugins import web_server
