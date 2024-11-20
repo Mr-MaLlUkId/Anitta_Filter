@@ -357,7 +357,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('No such file exist😔. ')
+            return await query.answer('𝖭𝗈 𝖲𝗎𝖼𝗁 𝖥𝗂𝗅𝖾 𝖤𝗑𝗂𝗌𝗍.😔.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -398,21 +398,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         ]
                     )
                 )
-                await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                await query.answer('🫣𝖢𝗁𝖾𝖼𝗄 𝖯𝗆, 𝗂 𝖧𝖺𝗏𝖾 𝖲𝖾𝗇𝗍 𝖥𝗂𝗅𝖾𝗌 𝗂𝗇 𝖯𝗆📁', show_alert=True)
         except UserIsBlocked:
-            await query.answer('Unblock the bot mahn !', show_alert=True)
+            await query.answer('⚠️𝖴𝗇𝖻𝗅𝗈𝖼𝗄 𝗍𝗁𝖾 𝖡𝗈𝗍 𝖬𝖺𝗁𝗇 !', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("I Like Your Smartness, But Don't Be Oversmart Okay", show_alert=True)
+            await query.answer("🤓𝖨 𝖫𝗂𝗄𝖾 𝖸𝗈𝗎𝗋 𝖲𝗆𝖺𝗋𝗍𝗇𝖾𝗌𝗌, 🥸 𝖡𝗎𝗍 𝖣𝗈𝗇'𝗍 𝖡𝖾 𝖮𝗏𝖾𝗋𝗌𝗆𝖺𝗋𝗍 𝖮𝗄𝖺𝗒", show_alert=True)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer('No such file exist.😬.')
+            return await query.answer('𝖭𝗈 𝖲𝗎𝖼𝗁 𝖥𝗂𝗅𝖾 𝖤𝗑𝗂𝗌𝗍.😬.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
