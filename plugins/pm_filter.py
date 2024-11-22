@@ -449,7 +449,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('➜ 𝗔𝗱𝗱 𝗺𝗲 𝘁𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➜', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('♔ 𝗢𝘄𝗻𝗲𝗿', callback_data='owner'),
-            InlineKeyboardButton('𝗦𝘂𝗽𝗽𝗼𝗿𝘁 ⌬', url='https://t.me/+lTcjMF6iKqs1MjJl')
+            InlineKeyboardButton('𝗦𝘂𝗽𝗽𝗼𝗿𝘁 ⌬', callback_data='support')
             ],[
             InlineKeyboardButton('〄 𝗛𝗲𝗹𝗽', callback_data='help'),
             InlineKeyboardButton('𝗔𝗯𝗼𝘂𝘁 ⍟', callback_data='about')
@@ -566,6 +566,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.EXTRAMOD_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+    elif query.data == "support"
+        buttons = [[
+            InlineKeyboardButton('📣Updates Channel📣', url='https://t.me/CINEMACLUBLINKZ')
+            ],[
+            InlineKeyboardButton('Group 1️⃣', url='https://t.me/CINEMACLUBLINKZ'),
+            InlineKeyboardButton('Group 2️⃣', url='https://t.me/CINEMACLUBLINKZ')
+            ],[
+            InlineKeyboardButton('⇚ 𝗕𝗮𝗰𝗸', callback_data='start')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.SUPPORT_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
