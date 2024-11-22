@@ -121,7 +121,8 @@ async def next_page(bot, query):
         )
     elif off_set is None:
         btn.append(
-            [InlineKeyboardButton(f"❏ 𝗣𝗮𝗴𝗲: {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
+            [InlineKeyboardButton("𝗣𝗮𝗴𝗲", callback_data="pages"),
+             InlineKeyboardButton(f"❏ {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)} ❏", callback_data="pages"),
              InlineKeyboardButton("𝗡𝗲𝘅𝘁⤷", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
@@ -638,36 +639,36 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if settings is not None:
             buttons = [
                 [
-                    InlineKeyboardButton('Filter Button',
+                    InlineKeyboardButton('𝗙𝗶𝗹𝘁𝗲𝗿 𝗕𝘂𝘁𝘁𝗼𝗻',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('Single' if settings["button"] else 'Double',
+                    InlineKeyboardButton('𝗦𝗶𝗻𝗴𝗹𝗲' if settings["button"] else '𝗗𝗼𝘂𝗯𝗹𝗲',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('Bot PM', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["botpm"] else '❌ No',
+                    InlineKeyboardButton('𝗕𝗼𝘁 𝗣𝗠', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✓ 𝗬𝗲𝘀' if settings["botpm"] else '✕ 𝗡𝗼',
                                          callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('File Secure',
+                    InlineKeyboardButton('𝗙𝗶𝗹𝗲 𝗦𝗲𝗰𝘂𝗿𝗲',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["file_secure"] else '❌ No',
+                    InlineKeyboardButton('✓ 𝗬𝗲𝘀' if settings["file_secure"] else '✕ 𝗡𝗼',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('IMDB', callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["imdb"] else '❌ No',
+                    InlineKeyboardButton('𝗜𝗺𝗱𝗯', callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✓ 𝗬𝗲𝘀' if settings["imdb"] else '✕ 𝗡𝗼',
                                          callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('Spell Check',
+                    InlineKeyboardButton('𝗦𝗽𝗲𝗹𝗹 𝗖𝗵𝗲𝗰𝗸',
                                          callback_data=f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["spell_check"] else '❌ No',
+                    InlineKeyboardButton('✓ 𝗬𝗲𝘀' if settings["spell_check"] else '✕ 𝗡𝗼',
                                          callback_data=f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('Welcome', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["welcome"] else '❌ No',
+                    InlineKeyboardButton('𝗪𝗲𝗹𝗰𝗼𝗺𝗲', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('✓ 𝗬𝗲𝘀' if settings["welcome"] else '✕ 𝗡𝗼',
                                          callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
                 ]
             ]
@@ -739,7 +740,8 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"❏ 𝗣𝗮𝗴𝗲: 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+            [InlineKeyboardButton("𝗣𝗮𝗴𝗲", callback_data="pages"),
+             InlineKeyboardButton(text=f"❏ 1/{math.ceil(int(total_results) / 10)} ❏", callback_data="pages"),
              InlineKeyboardButton(text="𝗡𝗲𝘅𝘁⤷", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
