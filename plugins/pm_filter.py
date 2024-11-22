@@ -781,7 +781,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>Rᴇǫᴜᴇsᴛᴇᴅ Mᴏᴠɪᴇ Nᴀᴍᴇ :</b><code>{search}</code>\n\n<b><u>Note : Files Sended To PM Check In Private</u></b>"
+        cap = f"<b>○ 𝖧𝖾𝗋𝖾 𝗂𝗌 𝗐𝗁𝖺𝗍 𝗂 𝖿𝗈𝗎𝗇𝖽 𝖿𝗈𝗋 𝗒𝗈𝗎𝗋 𝗊𝗎𝖾𝗋𝗒</b> - <b><u>{search}</u></b>"
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
