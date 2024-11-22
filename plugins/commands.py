@@ -23,10 +23,13 @@ async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('🛡 ᴄʜᴀɴɴᴇʟ', url='https://t.me/CINEMACLUBLINKZ'),
+                InlineKeyboardButton('➜ 𝗔𝗱𝗱 𝗺𝗲 𝘁𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➜', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],
             [
-                InlineKeyboardButton('🧩 ɢʀᴏᴜᴘ', url='https://t.me/+lTcjMF6iKqs1MjJl')
+                InlineKeyboardButton('🧩 𝗠𝗼𝘃𝗶𝗲 𝗚𝗿𝗼𝘂𝗽 - 𝟭🧩', url='https://t.me/Mallu_Movie_Hub_Group')
+            ],
+            [
+                InlineKeyboardButton('🧩 𝗠𝗼𝘃𝗶𝗲 𝗚𝗿𝗼𝘂𝗽 - 𝟮🧩', url='https://t.me/+iEbhY7mM4oE1OTVl')
             ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -42,13 +45,13 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➜ 𝗔𝗱𝗱 𝗺𝗲 𝘁𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➜', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('♔ 𝗢𝘄𝗻𝗲𝗿', callback_data='owner'),
+            InlineKeyboardButton('𝗦𝘂𝗽𝗽𝗼𝗿𝘁 ⌬', url='https://t.me/+lTcjMF6iKqs1MjJl')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('〄 𝗛𝗲𝗹𝗽', callback_data='help'),
+            InlineKeyboardButton('𝗔𝗯𝗼𝘂𝘁 ⍟', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -90,11 +93,11 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➜ 𝗔𝗱𝗱 𝗺𝗲 𝘁𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➜', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('♔ 𝗢𝘄𝗻𝗲𝗿', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('𝗦𝘂𝗽𝗽𝗼𝗿𝘁 ⌬', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('♔ 𝗢𝘄𝗻𝗲𝗿', callback_data='owner'),
+            InlineKeyboardButton('𝗦𝘂𝗽𝗽𝗼𝗿𝘁 ⌬', url='https://t.me/+lTcjMF6iKqs1MjJl')
             ],[
-            InlineKeyboardButton('𝗛𝗲𝗹𝗽 〄', callback_data='help'),
-            InlineKeyboardButton('⍟ 𝗔𝗯𝗼𝘂𝘁', callback_data='about')
+            InlineKeyboardButton('〄 𝗛𝗲𝗹𝗽', callback_data='help'),
+            InlineKeyboardButton('𝗔𝗯𝗼𝘂𝘁 ⍟', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
