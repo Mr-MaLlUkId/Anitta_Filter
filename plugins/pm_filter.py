@@ -9,7 +9,7 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NOR_IMG
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NOR_IMG, CLOSE_IMG
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -161,7 +161,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             one_button = InlineKeyboardMarkup([[InlineKeyboardButton("🔍 𝗦𝗲𝗮𝗿𝗰𝗵 𝗶𝗻 𝗚𝗼𝗼𝗴𝗹𝗲 🔎", url="https://www.google.com")]])
-            k = await query.message.edit('<b>𝖧𝖾𝗒 <a href=tg://settings> 𝖬𝗒 𝖥𝗋𝗂𝖾𝗇𝖽💞</a></b>\n\n𝖧𝖾𝗋𝖾 𝗂𝗌 𝗆𝗈𝗏𝗂𝖾 𝗋𝖾𝗊𝗎𝖾𝗌𝗍 𝖿𝗈𝗋𝗆𝖺𝗍👇\n\n• 𝖦𝗈 𝗍𝗈 𝖦𝗈𝗈𝗀𝗅𝖾\n\n• 𝖳𝗒𝗉𝖾 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍\n\n• 𝖢𝗈𝗉𝗒 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗐𝗂𝗍𝗁 𝖼𝗈𝗋𝗋𝖾𝖼𝗍 𝗌𝗉𝖾𝗅𝗅𝗂𝗇𝗀\n\n• 𝖳𝗁𝖾𝗇 𝗉𝖺𝗌𝗍𝖾 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗁𝖾𝗋𝖾 𝗂𝗇 𝗍𝗁𝗂𝗌 𝗀𝗋𝗈𝗎𝗉\n\n<a><u>🚫 𝖣𝗈𝗇𝗍 𝖲𝗉𝖺𝗆 🚫</u></b>', reply_markup = one_button)
+            k = await query.reply_photo(photo=CLOSE_IMG, caption='<b>𝖧𝖾𝗒 <a href=tg://settings> 𝖬𝗒 𝖥𝗋𝗂𝖾𝗇𝖽💞</a></b>\n\n𝖧𝖾𝗋𝖾 𝗂𝗌 𝗆𝗈𝗏𝗂𝖾 𝗋𝖾𝗊𝗎𝖾𝗌𝗍 𝖿𝗈𝗋𝗆𝖺𝗍👇\n\n• 𝖦𝗈 𝗍𝗈 𝖦𝗈𝗈𝗀𝗅𝖾\n\n• 𝖳𝗒𝗉𝖾 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍\n\n• 𝖢𝗈𝗉𝗒 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗐𝗂𝗍𝗁 𝖼𝗈𝗋𝗋𝖾𝖼𝗍 𝗌𝗉𝖾𝗅𝗅𝗂𝗇𝗀\n\n• 𝖳𝗁𝖾𝗇 𝗉𝖺𝗌𝗍𝖾 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗁𝖾𝗋𝖾 𝗂𝗇 𝗍𝗁𝗂𝗌 𝗀𝗋𝗈𝗎𝗉\n\n<a><u>🚫 𝖣𝗈𝗇𝗍 𝖲𝗉𝖺𝗆 🚫</u></b>', reply_markup = one_button)
             await asyncio.sleep(99)
             await k.delete()
 
