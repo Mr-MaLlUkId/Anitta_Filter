@@ -569,7 +569,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data == "support"
+    elif query.data == "support":
         buttons = [[
             InlineKeyboardButton('📣Updates Channel📣', url='https://t.me/CINEMACLUBLINKZ')
             ],[
