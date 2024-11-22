@@ -21,17 +21,15 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        buttons = [
-            [
-                InlineKeyboardButton('➜ 𝗔𝗱𝗱 𝗺𝗲 𝘁𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➜', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-            ],
-            [
-                InlineKeyboardButton('🧩 𝗠𝗼𝘃𝗶𝗲 𝗚𝗿𝗼𝘂𝗽 - 𝟭🧩', url='https://t.me/Mallu_Movie_Hub_Group')
-            ],
-            [
-                InlineKeyboardButton('🧩 𝗠𝗼𝘃𝗶𝗲 𝗚𝗿𝗼𝘂𝗽 - 𝟮🧩', url='https://t.me/+iEbhY7mM4oE1OTVl')
-            ]
-            ]
+        buttons = [[
+            InlineKeyboardButton('➜ 𝗔𝗱𝗱 𝗺𝗲 𝘁𝗼 𝗬𝗼𝘂𝗿 𝗚𝗿𝗼𝘂𝗽 ➜', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            ],[
+            InlineKeyboardButton('🧩 𝗠𝗼𝘃𝗶𝗲 𝗚𝗿𝗼𝘂𝗽 - 𝟭🧩', url='https://t.me/Mallu_Movie_Hub_Group')
+            ],[
+            InlineKeyboardButton('🧩 𝗠𝗼𝘃𝗶𝗲 𝗚𝗿𝗼𝘂𝗽 - 𝟮🧩', url='https://t.me/+iEbhY7mM4oE1OTVl')
+            ],[
+            InlineKeyboardButton('🤖 𝗖𝗵𝗲𝗰𝗸 𝗠𝘆 𝗣𝗺 🤖', url=f"https://t.me/{temp.U_NAME}?start=help")
+            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
