@@ -545,7 +545,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "owner":
         buttons = [[
             InlineKeyboardButton('⇚ 𝗕𝗮𝗰𝗸', callback_data='start'),
-            InlineKeyboardButton('📞Cᴏɴᴛᴀᴄᴛ', url='https://t.me/MalluBlasters')
+            InlineKeyboardButton('𝗖𝗼𝗻𝘁𝗮𝗰𝘁 📞', url='https://t.me/TG_x_filter')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
