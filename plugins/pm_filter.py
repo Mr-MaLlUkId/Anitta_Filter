@@ -9,7 +9,7 @@ import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
 from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NOR_IMG, CLOSE_IMG
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NOR_IMG, SPELL_IMG
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
@@ -852,8 +852,8 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="✘ 𝖢𝗅𝗈𝗌𝖾 ✘", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("I couldn't find anything related that\nyou mean any one of these.?\n\nതാങ്കൾ ഉദ്ദേശിച്ച മൂവി തായെ വല്ലതും ആണെങ്കിൽ അതിൽ ക്ലിക്ക് ചെയ്യുക.?",
-                    reply_markup=InlineKeyboardMarkup(btn))
+    k = await msg.reply_photo(photo=SPELL_IMG,caption="I couldn't find anything related that\nyou mean any one of these.?\n\nതാങ്കൾ ഉദ്ദേശിച്ച മൂവി തായെ വല്ലതും ആണെങ്കിൽ അതിൽ ക്ലിക്ക് ചെയ്യുക.?",
+                    reply_markup=InlineKeyboardMarkup(btn), reply_to_message_id=msg.id)
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
