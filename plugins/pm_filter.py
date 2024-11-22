@@ -76,7 +76,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"▫[{get_size(file.file_size)}] ▸ {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"🗃 [{get_size(file.file_size)}]  {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -88,7 +88,7 @@ async def next_page(bot, query):
                     text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
                 InlineKeyboardButton(
-                    text=f"▫{get_size(file.file_size)}",
+                    text=f"🗃{get_size(file.file_size)}",
                     callback_data=f'files_#{file.file_id}',
                 ),
             ]
@@ -97,13 +97,13 @@ async def next_page(bot, query):
         ]
     btn.insert(0, 
         [
-            InlineKeyboardButton(f' 🔎 {search} 🔍 ', 'qinfo')
+            InlineKeyboardButton(f'⇓ {search} ⇓', 'qinfo')
         ]
     )
     btn.insert(1, 
          [
-             InlineKeyboardButton(f'ɪɴꜰᴏ', 'reqinfo'),
-             InlineKeyboardButton(f"ғɪʟᴇs: {len(btn)}", callback_data="files")
+             InlineKeyboardButton(f'⌗ 𝗜𝗻𝗳𝗼', 'reqinfo'),
+             InlineKeyboardButton(f"🗃 𝗙𝗶𝗹𝗲𝘀: {len(btn)}", callback_data="files")
          ]
     )
 
@@ -673,7 +673,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('Piracy Is Crime')
+    await query.answer('𝖫𝗈𝖺𝖽𝗂𝗇𝗀...⏳')
 
 
 async def auto_filter(client, msg, spoll=False):
@@ -702,7 +702,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"▫[{get_size(file.file_size)}] ▸ {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"🗃[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -711,7 +711,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"▫{file.file_name}",
+                    text=f"🗃{file.file_name}",
                     callback_data=f'{pre}#{file.file_id}',
                 ),
                 InlineKeyboardButton(
@@ -724,13 +724,13 @@ async def auto_filter(client, msg, spoll=False):
     
     btn.insert(0, 
         [
-            InlineKeyboardButton(f' 🔎 {search} 🔍 ', 'qinfo')
+            InlineKeyboardButton(f'⇓ {search} ⇓', 'qinfo')
         ]
     )
     btn.insert(1, 
          [
-             InlineKeyboardButton(f'ɪɴꜰᴏ', 'reqinfo'),
-             InlineKeyboardButton(f"ғɪʟᴇs: {len(btn)}", callback_data="files")
+             InlineKeyboardButton(f'⌗ 𝗜𝗻𝗳𝗼', 'reqinfo'),
+             InlineKeyboardButton(f"🗃 𝗙𝗶𝗹𝗲𝘀: {len(btn)}", callback_data="files")
          ]
     )
 
@@ -739,12 +739,12 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"❏ 𝖯𝖺𝗀𝖾: 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
-             InlineKeyboardButton(text="𝖭𝖾𝗑𝗍 ⤷", callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"❏ 𝗣𝗮𝗴𝗲: 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+             InlineKeyboardButton(text="𝗡𝗲𝘅𝘁⤷", callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="! 𝖭𝗈 𝖬𝗈𝗋𝖾 𝖭𝖾𝗑𝗍 𝖯𝖺𝗀𝖾𝗌 !", callback_data="pages")]
+            [InlineKeyboardButton(text="❕𝗡𝗼 𝗠𝗼𝗿𝗲 𝗡𝗲𝘅𝘁 𝗣𝗮𝗴𝗲𝘀❕", callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
