@@ -161,8 +161,8 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             one_button = InlineKeyboardMarkup([[InlineKeyboardButton("🔍 𝗦𝗲𝗮𝗿𝗰𝗵 𝗶𝗻 𝗚𝗼𝗼𝗴𝗹𝗲 🔎", url="https://www.google.com")]])
-            k = await query.message.edit('𝗧𝗵𝗶𝘀 𝗠𝗼𝘃𝗶𝗲 𝗡𝗼𝘁 𝗙𝗼𝘂𝗻𝗱 𝗜𝗻 𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲', reply_markup = one_button)
-            await asyncio.sleep(10)
+            k = await query.message.edit('<b>𝖧𝖾𝗒 <a href=tg://settings> 𝖬𝗒 𝖥𝗋𝗂𝖾𝗇𝖽💞</a></b>\n\n𝖧𝖾𝗋𝖾 𝗂𝗌 𝗆𝗈𝗏𝗂𝖾 𝗋𝖾𝗊𝗎𝖾𝗌𝗍 𝖿𝗈𝗋𝗆𝖺𝗍👇\n\n• 𝖦𝗈 𝗍𝗈 𝖦𝗈𝗈𝗀𝗅𝖾\n\n• 𝖳𝗒𝗉𝖾 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗒𝗈𝗎 𝗐𝖺𝗇𝗍\n\n• 𝖢𝗈𝗉𝗒 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗐𝗂𝗍𝗁 𝖼𝗈𝗋𝗋𝖾𝖼𝗍 𝗌𝗉𝖾𝗅𝗅𝗂𝗇𝗀\n\n• 𝖳𝗁𝖾𝗇 𝗉𝖺𝗌𝗍𝖾 𝗍𝗁𝖾 𝗆𝗈𝗏𝗂𝖾 𝗇𝖺𝗆𝖾 𝗁𝖾𝗋𝖾 𝗂𝗇 𝗍𝗁𝗂𝗌 𝗀𝗋𝗈𝗎𝗉\n\n<a><u>🚫 𝖣𝗈𝗇𝗍 𝖲𝗉𝖺𝗆 🚫</u></b>', reply_markup = one_button)
+            await asyncio.sleep(99)
             await k.delete()
 
 
