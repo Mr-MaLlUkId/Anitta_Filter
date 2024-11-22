@@ -39,7 +39,7 @@ async def index_files(bot, query):
     await msg.edit(
         "Starting Indexing",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
+            [[InlineKeyboardButton('⛔𝗦𝗧𝗢𝗣⛔', callback_data='index_cancel')]]
         )
     )
     try:
@@ -84,11 +84,11 @@ async def send_for_index(bot, message):
     if message.from_user.id in ADMINS:
         buttons = [
             [
-                InlineKeyboardButton('Yes',
+                InlineKeyboardButton('✔️𝗔𝗣𝗣𝗥𝗢𝗩𝗘𝗗✔️',
                                      callback_data=f'index#accept#{chat_id}#{last_msg_id}#{message.from_user.id}')
             ],
             [
-                InlineKeyboardButton('close', callback_data='close_data'),
+                InlineKeyboardButton('❌𝗖𝗔𝗡𝗖𝗘𝗟❌', callback_data='close_data'),
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -105,11 +105,11 @@ async def send_for_index(bot, message):
         link = f"@{message.forward_from_chat.username}"
     buttons = [
         [
-            InlineKeyboardButton('Accept Index',
+            InlineKeyboardButton('𝗔𝗖𝗖𝗘𝗣𝗧 𝗜𝗡𝗗𝗘𝗫✔️',
                                  callback_data=f'index#accept#{chat_id}#{last_msg_id}#{message.from_user.id}')
         ],
         [
-            InlineKeyboardButton('Reject Index',
+            InlineKeyboardButton('𝗥𝗘𝗝𝗘𝗖𝗧 𝗜𝗡𝗗𝗘𝗫❌',
                                  callback_data=f'index#reject#{chat_id}#{message.message_id}#{message.from_user.id}'),
         ]
     ]
