@@ -377,10 +377,10 @@ async def settings(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Nᴀ Uɴɢᴀ Gʀᴏᴜᴘ Lᴀ Eʀᴜᴋᴇɴ Nᴀɴᴜ Cʜᴇᴄᴋ Pᴀɴɴᴜɴɢᴀ!!", quote=True)
+                await message.reply_text("Make sure I'm present in your group!!", quote=True)
                 return
         else:
-            await message.reply_text("Nᴀ Iɴɴᴜᴍ Eɴᴛʜᴀ Gʀᴏᴜᴘ Lᴀʏᴜᴍ Aᴅᴅ Pᴀɴɴᴀʟᴀ!", quote=True)
+            await message.reply_text("I'm not connected to any groups!", quote=True)
             return
 
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -404,61 +404,61 @@ async def settings(client, message):
         buttons = [
             [
                 InlineKeyboardButton(
-                    'Filter Button',
+                    '▪️𝗙𝗶𝗹𝘁𝗲𝗿 𝗕𝘂𝘁𝘁𝗼𝗻',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Single' if settings["button"] else 'Double',
+                    '𝗦𝗶𝗻𝗴𝗹𝗲' if settings["button"] else '𝗗𝗼𝘂𝗯𝗹𝗲',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Bot PM',
+                    '🤖𝗕𝗼𝘁 𝗣𝗠',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["botpm"] else '❌ No',
+                    '√ 𝗬𝗲𝘀' if settings["botpm"] else '⛌ 𝗡𝗼',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'File Secure',
+                    '📁𝗙𝗶𝗹𝗲 𝗦𝗲𝗰𝘂𝗿𝗲',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["file_secure"] else '❌ No',
+                    '√ 𝗬𝗲𝘀' if settings["file_secure"] else '⛌ 𝗡𝗼',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'IMDB',
+                    '🌄𝗜𝗺𝗱𝗯',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["imdb"] else '❌ No',
+                    '√ 𝗬𝗲𝘀' if settings["imdb"] else '⛌ 𝗡𝗼',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Spell Check',
+                    '🔎𝗦𝗽𝗲𝗹𝗹 𝗖𝗵𝗲𝗰𝗸',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["spell_check"] else '❌ No',
+                    '√ 𝗬𝗲𝘀' if settings["spell_check"] else '⛌ 𝗡𝗼',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Welcome',
+                    '🫂𝗪𝗲𝗹𝗰𝗼𝗺𝗲',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✅ Yes' if settings["welcome"] else '❌ No',
+                    '√ 𝗬𝗲𝘀' if settings["welcome"] else '⛌ 𝗡𝗼',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
             ],
@@ -481,7 +481,7 @@ async def save_template(client, message):
     sts = await message.reply("Checking template")
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"Nᴇɴɢᴀ Aᴅᴅʀᴇss IʟʟᴀTʜᴀ Aᴅᴍɪɴ 🤣. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
     if chat_type == enums.ChatType.PRIVATE:
@@ -492,10 +492,10 @@ async def save_template(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Nᴀ Uɴɢᴀ Gʀᴏᴜᴘ Lᴀ Eʀᴜᴋᴇɴ Nᴀɴᴜ Cʜᴇᴄᴋ Pᴀɴɴᴜɴɢᴀ!!", quote=True)
+                await message.reply_text("Make sure I'm present in your group!!", quote=True)
                 return
         else:
-            await message.reply_text("Nᴀ Iɴɴᴜᴍ Eɴᴛʜᴀ Gʀᴏᴜᴘ Lᴀʏᴜᴍ Aᴅᴅ Pᴀɴɴᴀʟᴀ!", quote=True)
+            await message.reply_text("I'm not connected to any groups!", quote=True)
             return
 
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
