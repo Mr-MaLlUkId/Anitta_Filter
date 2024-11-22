@@ -852,7 +852,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="✘ 𝖢𝗅𝗈𝗌𝖾 ✘", callback_data=f'spolling#{user}#close_spellcheck')])
-    k = await msg.reply_photo(photo=SPELL_IMG,caption="I couldn't find anything related that\nyou mean any one of these.?\n\nതാങ്കൾ ഉദ്ദേശിച്ച മൂവി തായെ വല്ലതും ആണെങ്കിൽ അതിൽ ക്ലിക്ക് ചെയ്യുക.?",
+    k = await msg.reply_photo(photo=SPELL_IMG,caption="𝖨 𝖼𝗈𝗎𝗅𝖽𝗇'𝗍 𝖿𝗂𝗇𝖽 𝖺𝗇𝗒𝗍𝗁𝗂𝗇𝗀 𝗋𝖾𝗅𝖺𝗍𝖾𝖽 𝗍𝗁𝖺𝗍\n𝗒𝗈𝗎 𝗆𝖾𝖺𝗇 𝖺𝗇𝗒 𝗈𝗇𝖾 𝗈𝖿 𝗍𝗁𝖾𝗌𝖾.?\n\nതാങ്കൾ ഉദ്ദേശിച്ച മൂവി തായെ വല്ലതും ആണെങ്കിൽ അതിൽ ക്ലിക്ക് ചെയ്യുക.?",
                     reply_markup=InlineKeyboardMarkup(btn), reply_to_message_id=msg.id)
 
 async def manual_filters(client, message, text=False):
