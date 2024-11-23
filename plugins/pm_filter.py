@@ -477,7 +477,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await client.edit_message_media(
             query.message.chat.id, 
             query.message.id, 
-            InputMediaPhoto("https://envs.sh/KjC.jpg")
+            InputMediaPhoto("https://envs.sh/KjC.jpg", has_spoiler=True)
         )
         await query.message.edit_text(
             text=script.HELP_TXT,
