@@ -571,10 +571,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "support":
         buttons = [[
-            InlineKeyboardButton('📣 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 📣', url='https://t.me/CINEMACLUBLINKZ')
+            InlineKeyboardButton('📣 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 📣', url='https://t.me/cinema_flix_updates')
             ],[
-            InlineKeyboardButton('𝗚𝗿𝗼𝘂𝗽 - 1️⃣', url='https://t.me/CINEMACLUBLINKZ'),
-            InlineKeyboardButton('𝗚𝗿𝗼𝘂𝗽 - 2️⃣', url='https://t.me/CINEMACLUBLINKZ')
+            InlineKeyboardButton('𝗚𝗿𝗼𝘂𝗽 - 1️⃣', url='https://t.me/Mallu_Movie_Hub_Group'),
+            InlineKeyboardButton('𝗚𝗿𝗼𝘂𝗽 - 2️⃣', url='https://t.me/+iEbhY7mM4oE1OTVl')
             ],[
             InlineKeyboardButton('⇚ 𝗕𝗮𝗰𝗸 ⇛', callback_data='start')
         ]]
