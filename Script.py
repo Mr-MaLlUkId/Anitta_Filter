@@ -8,7 +8,7 @@ class script(object):
 
 <b>• 𝖨 𝖺𝗆 𝗁𝖾𝗋𝖾 𝗍𝗈 𝗁𝖾𝗅𝗈 𝗒𝗈𝗎 𝗀𝖾𝗍 𝖺𝗋𝗈𝗎𝗇𝖽 𝖺𝗇𝖽 𝗄𝖾𝖾𝗉 𝗍𝗁𝖾 𝗈𝗋𝖽𝖾𝗋 𝗂𝗇 𝗒𝗈𝗎𝗋 𝗀𝗋𝗈𝗎𝗉𝗌..!🎉</b>"""
     
-    SUPPORT_TXT = """• Group's & Updates"""
+    SUPPORT_TXT = """<b>• 𝖦𝗋𝗈𝗎𝗉'𝗌 & 𝖴𝗉𝖽𝖺𝗍𝖾𝗌</b>"""
     
     ABOUT_TXT = """<b>➥ 𝖬𝗒 𝖭𝖺𝗆𝖾 : {}</b>
 <b>➥ 𝖢𝗋𝖾𝖺𝗍𝗈𝗋 : <a href=https://t.me/TG_x_filter>🇮🇳❍ 𝖒𝖆𝖓𝖙𝖎𝖘 ❍™◢ ◤</a></b>
