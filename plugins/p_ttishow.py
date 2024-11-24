@@ -57,9 +57,9 @@ async def save_group(bot, message):
                     temp.MELCOW['welcome'] = await message.reply_photo(photo=WELCOM_PIC, caption=WELCOM_TEXT.format(user=u.mention, chat=message.chat.title),
                                                                    reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                           InlineKeyboardButton('⚜️Movie Updates', url='https://t.me/cinema_flix_updates')
+                                                                           InlineKeyboardButton('⚜️Movie Updates⚠️', url='https://t.me/cinema_flix_updates')
                                                                            ],[
-                                                                           InlineKeyboardButton('⭕️Movie Group', url='https://t.me/Mallu_Movie_Hub_Group')
+                                                                           InlineKeyboardButton('⭕️Movie Group🎃', url='https://t.me/Mallu_Movie_Hub_Group')
                                                                         ]]
                                                                   ))
                else:
