@@ -1,4 +1,4 @@
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, WELCOM_PIC, WELCOM_TEXT
@@ -55,14 +55,14 @@ async def save_group(bot, message):
                         pass
                 temp.MELCOW['welcome'] = await message.reply_photo(
                                                  photo=(WELCOM_PIC),
-                                                 caption=(WELCOM_TEXT.format(user=u.mention, chat=message.chat.title),
+                                                 caption=(WELCOM_TEXT.format(user=u.mention, chat=message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
                                                                            InlineKeyboardButton('⚠️Movie Updates⚠️', url='https://t.me/cinema_flix_updates')
                                                                         ]]
-                                                 ))
-                                                 
-            else:
+                                                 ),
+                                                 parse_mode=enums.ParseMode.HTML
+                )
                 temp.MELCOW['welcome'] = await message.reply_text(text=WELCOM_TEXT.format(user=u.mention, chat=message.chat.title))
                                                                            
 
