@@ -58,16 +58,14 @@ async def save_group(bot, message):
                                                  caption=(WELCOM_TEXT.format(user=u.mention, chat=message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                           InlineKeyboardButton('⚠️Movie Updates⚠️', url='https://t.me/cinema_flix_updates')
+                                                                           InlineKeyboardButton('⚠️𝗝𝗼𝗶𝗻 𝗠𝗮𝗶𝗻 𝗖𝗵𝗮𝗻𝗻𝗲𝗹⚠️', url='https://t.me/cinema_flix_updates')
                                                                         ]]
                                                  ),
                                                  parse_mode=enums.ParseMode.HTML
-                )
-                
-        if settings["auto_delete"]:
-            await asyncio.sleep(600)
-            await (temp.MELCOW['welcome']).delete()
-                                                                           
+                )               
+                temp.MELCOW['welcome'] = await message.reply_text(text=WELCOM_TEXT.format(user=u.mention, chat=message.chat.title))
+
+
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
