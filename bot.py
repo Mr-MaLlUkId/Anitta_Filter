@@ -17,7 +17,7 @@ from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from aiohttp import web
 from plugins import web_server
-from datetime import date, datetime, today
+from datetime import date, datetime
 import time
 import os 
 import sys
