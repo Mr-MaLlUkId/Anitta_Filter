@@ -54,15 +54,9 @@ async def save_group(bot, message):
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply_photo(photo=WELCOM_PIC, caption=WELCOM_TEXT.format(user=u.mention, chat=message.chat.title),
-                                                                   reply_markup=InlineKeyboardMarkup(
-                                                                         [[
-                                                                           InlineKeyboardButton('⚠️𝗝𝗼𝗶𝗻 𝗠𝗮𝗶𝗻 𝗖𝗵𝗮𝗻𝗻𝗲𝗹⚠️', url='https://t.me/cinema_flix_updates')
-                                                                        ]]
-                                                                  ))
-            else:
-                temp.MELCOW['welcome'] = await message.reply_text(text=WELCOM_TEXT.format(user=u.mention, chat=message.chat.title))
-                                                                                                 
-
+                                                                   reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('⚠️𝗝𝗼𝗶𝗻 𝗠𝗮𝗶𝗻 𝗖𝗵𝗮𝗻𝗻𝗲𝗹⚠️', url='https://t.me/cinema_flix_updates') ] ] )   
+                )
+                
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
