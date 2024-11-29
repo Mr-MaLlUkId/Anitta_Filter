@@ -17,6 +17,10 @@ from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from aiohttp import web
 from plugins import web_server
+from datetime import date, datetime
+import time
+import os 
+import sys
 
 PORT = "8080"
 
@@ -48,6 +52,7 @@ class Bot(Client):
         await app.setup()
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, PORT).start()
+        await self.send_message(chat_id=LOG_CHANNEL, text=f"<b>{me.mention} ʀᴇsᴛᴀʀᴛᴇᴅ 🤖\n\n📆 ᴅᴀᴛᴇ - <code>{today}</code>\n🕙 ᴛɪᴍᴇ - <code>{timee}</code>\n🌍 ᴛɪᴍᴇ ᴢᴏɴᴇ - <code>Asia/Kolkata</code></b>")
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
 
