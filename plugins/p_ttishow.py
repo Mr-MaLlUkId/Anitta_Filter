@@ -57,7 +57,7 @@ async def save_group(bot, message):
                 temp.MELCOW['welcome'] = await message.reply_photo(photo=WELCOM_PIC, caption=WELCOM_TEXT.format(user=u.mention, chat=message.chat.title),
                                                                    reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                           InlineKeyboardButton('⚜️Movie Updates', url='https://t.me/cinema_flix_updates')
+                                                                           InlineKeyboardButton('⚠️𝗝𝗼𝗶𝗻 𝗠𝗮𝗶𝗻 𝗖𝗵𝗮𝗻𝗻𝗲𝗹⚠️', url='https://t.me/cinema_flix_updates')
                                                                         ]]
                                                                   ))
             else:
@@ -75,7 +75,7 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('💬𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗛𝗲𝗿𝗲💬', url=f'https://t.me/{SUPPORT_CHAT}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -114,7 +114,7 @@ async def disable_chat(bot, message):
     await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('💬𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗛𝗲𝗿𝗲💬', url=f'https://t.me/{SUPPORT_CHAT}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
