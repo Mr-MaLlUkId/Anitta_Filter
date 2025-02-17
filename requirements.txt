@@ -12,4 +12,4 @@ pyrofork
 schedule
 pytz
 datetime
-aiohttp
+aiohttp==3.7.4
